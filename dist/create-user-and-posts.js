@@ -13,18 +13,27 @@ const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
-        const user = yield prisma.user.create({
+        yield prisma.user.create({
             data: {
-                name: 'Godwin saby',
-                email: 'Godwisantyn@prisma.io',
-            },
+                email: "godwinsavu3@gmail.com",
+                name: "godwin",
+                posts: {
+                    create: [
+                        {
+                            title: "godwin title1"
+                        },
+                        {
+                            title: "godwinsabu title2"
+                        },
+                    ]
+                }
+            }
         });
-        console.log(user, 'user');
     });
 }
 main()
     .then(() => __awaiter(void 0, void 0, void 0, function* () {
-    console.log("created user succesfully");
+    console.log("done");
     yield prisma.$disconnect();
 }))
     .catch((e) => __awaiter(void 0, void 0, void 0, function* () {
